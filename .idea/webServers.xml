@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="839a16c5-9c3d-40d7-b50f-40856e4966bb" name="erta-pistontest" url="http://pistontest.com:2082/">
+        <fileTransfer rootFolder="/public_html/erta.pistontest.com" host="5.253.141.52" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
