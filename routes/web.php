@@ -4,13 +4,6 @@
 use Illuminate\Support\Facades\Route;
 
 
-//** Geliştirme ve test alanı */
-    Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('site.index');
-//** Geliştirme ve test alanı Sonu */
-
-
-
-
 // ** Çoklu dil desteği yapısı - config/routes.php'den yönetilir.
 Route::group(['middleware' => 'localization'], function () {
     foreach (\Illuminate\Support\Facades\Config::get('routes') as $route){
@@ -19,8 +12,6 @@ Route::group(['middleware' => 'localization'], function () {
         }
         Route::get('redirect/'.$route['locales']['tr'],[\App\Http\Controllers\SiteController::class,$route['funcName']])->name($route['name']);
     }
-
-    Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('site.index');
     Route::post('contact-post',[\App\Http\Controllers\SiteController::class,'contactPost'])->name('site.contact.store');
 });
 
@@ -39,6 +30,14 @@ Route::fallback(function (){
 });
 
 Route::get('make-storage',function (){
-   \Illuminate\Support\Facades\Artisan::call('storage:link');
-   return "ok";
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    return "ok";
 });
+
+
+Route::get('{any}', function () {
+    return view('site.react');  // React uygulamasını içeren Blade şablonunu döndürüyoruz
+})->where('any', '.*');  // React Router, URL'leri yönetir
+
+
+

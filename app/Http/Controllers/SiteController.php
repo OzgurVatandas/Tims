@@ -30,6 +30,7 @@ class SiteController extends Controller
 
     public function test()
     {
+        return view('site.test');
         $data = [];
         $this->data = array_merge($this->data, $data);
         return view("site.index_new", $this->data);
