@@ -7,15 +7,19 @@ const Contact = () => {
     const navigate = useNavigate();
     const [count,setCount] = useState(0);
 
-
-    const buttonClicked = () => {
+    const buttonIncClicked = () => {
         setCount(count + 1);
+    }
+    const buttonDecClicked = () => {
+        setCount(count -1);
     }
 
     return (
         <div>
+            <p>İletişim</p>
             <p>{count}</p>
-            <button onClick={buttonClicked}>arttır</button>
+            <button onClick={buttonIncClicked}>arttır</button>
+            <button onClick={buttonDecClicked}>azalt</button>
             <button onClick={() => navigate('/')}>contact'a git</button>
         </div>
     );

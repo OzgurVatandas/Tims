@@ -9,15 +9,8 @@ const Home = () => {
 
     return (
         <>
-            <div data-aos="fade-left" className={'w-100 '} style={{'height': '300px', 'backgroundColor': 'red'}}>
-
-            </div>
-            <div data-aos="fade-right" className={'w-100 '} style={{'height': '300px', 'backgroundColor': 'blue'}}>
-
-            </div>
-            <div className={'w-100 '} style={{'height': '300px', 'backgroundColor': 'green'}}>
-
-            </div>
+            <p>Anasayfa</p>
+            <button onClick={() => navigate('/about')}> hakkımızdaya git</button>
         </>
     );
 }
