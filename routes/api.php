@@ -14,7 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('test',function (){
-   return ['data' => 'ok'];
-});
+Route::get('config',[\App\Http\Controllers\Api\ApiController::class,'appConfig']);
 
