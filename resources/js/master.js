@@ -25,6 +25,21 @@ const Master = () =>  {
         })
 
         AOS.init({ duration: 1000 });
+
+    }, []);
+
+    /** Mouse event tracker */
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            document.documentElement.style.setProperty('--x', `${e.clientX + window.scrollX}px`);
+            document.documentElement.style.setProperty('--y', `${e.clientY + window.scrollY}px`);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
     }, []);
 
     useEffect(() => {

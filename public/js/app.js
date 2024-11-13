@@ -5154,6 +5154,18 @@ var Master = function Master() {
       duration: 1000
     });
   }, []);
+
+  /** Mouse event tracker */
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleMouseMove = function handleMouseMove(e) {
+      document.documentElement.style.setProperty('--x', "".concat(e.clientX + window.scrollX, "px"));
+      document.documentElement.style.setProperty('--y', "".concat(e.clientY + window.scrollY, "px"));
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return function () {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (appData.config) {
       document.title = "".concat(appData.config.appName, " | ").concat(appData.pageTitle || 'Ana Sayfa');
@@ -5340,20 +5352,6 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
-
-var MouseTracker = function MouseTracker() {
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var handleMouseMove = function handleMouseMove(e) {
-      document.documentElement.style.setProperty('--x', "".concat(e.clientX + window.scrollX, "px"));
-      document.documentElement.style.setProperty('--y', "".concat(e.clientY + window.scrollY, "px"));
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return function () {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-  return null;
-};
 var Home = function Home() {
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_master__WEBPACK_IMPORTED_MODULE_1__.GlobalContext),
     appData = _useContext.appData,
@@ -5369,7 +5367,7 @@ var Home = function Home() {
     id: "homepage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "invertedcursor"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MouseTracker, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     "data-aos": "fade-left",
     "data-aos-duration": "1000",
     style: {
