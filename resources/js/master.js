@@ -7,6 +7,7 @@ import axiosConfig from "./src/axiosConfig";
 import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact";
+import Header from "./views/partials/Header"
 
 
 
@@ -18,7 +19,8 @@ const Master = () =>  {
         axiosConfig.get('config').then(response => {
             setAppData({
                 config : response.data.data,
-                pageTitle : ''
+                pageTitle : '',
+                displayMode : 'light'
             });
         })
 
@@ -35,6 +37,7 @@ const Master = () =>  {
         <GlobalContext.Provider value={{appData,setAppData}}>
             <Router>
                 <div>
+                    <Header/>
                     <Routes>
                         <Route exact path="/" element={<Home/>} />
                         <Route path="/about" element={<About/>} />
