@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PistonTemplate.iml" filepath="$PROJECT_DIR$/.idea/PistonTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PtakademiManagement.iml" filepath="$PROJECT_DIR$/.idea/PtakademiManagement.iml" />
     </modules>
   </component>
 </project>
