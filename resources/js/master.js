@@ -5,9 +5,9 @@ import AOS from 'aos';
 import axiosConfig from "./src/axiosConfig";
 
 import Home from "./views/Home";
-import About from "./views/About";
-import Contact from "./views/Contact";
-import Header from "./views/partials/Header"
+import Header from "./views/partials/Header";
+import Footer from "./views/partials/Footer";
+import BackgroundEffect from "./views/BackgroundEffect";
 
 
 
@@ -51,14 +51,14 @@ const Master = () =>  {
     return (
         <GlobalContext.Provider value={{appData,setAppData}}>
             <Router>
-                <div>
-                    <Header/>
+                <main className="scroll-container">
+                <BackgroundEffect />
+                    <Header />
                     <Routes>
                         <Route exact path="/" element={<Home/>} />
-                        <Route path="/about" element={<About/>} />
-                        <Route path="/contact" element={<Contact/>} />
                     </Routes>
-                </div>
+                    <Footer />
+                </main>
             </Router>
         </GlobalContext.Provider>
     );
