@@ -42,11 +42,6 @@ const Master = () =>  {
         };
     }, []);
 
-    useEffect(() => {
-        if (appData.config) {
-            document.title = `${appData.config.appName} | ${appData.pageTitle || 'Ana Sayfa'}`;
-        }
-    }, [appData]);
 
     return (
         <GlobalContext.Provider value={{appData,setAppData}}>

@@ -8,6 +8,7 @@ import 'aos/dist/aos.css'; // AOS stilini dahil ediyoruz
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

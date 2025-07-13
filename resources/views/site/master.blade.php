@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{env('APP_NAME')}} @yield('title')</title>
+    <title>Tims Ajans @yield('title')</title>
+
     @include("site.partials.head")
     @include("site.partials.styles")
 

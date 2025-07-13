@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import emailjs from 'emailjs-com';
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { motion } from "framer-motion";
 
 const Footer = () => {
 
@@ -24,13 +25,13 @@ const Footer = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         if (name === 'phone') {
             const digitsOnly = value.replace(/\D/g, '');
             const formatted = formatPhone(digitsOnly);
-            setFormData(prev => ({ ...prev, phone: formatted }));
+            setFormData(prev => ({...prev, phone: formatted}));
         } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
+            setFormData(prev => ({...prev, [name]: value}));
         }
     };
 
@@ -40,12 +41,12 @@ const Footer = () => {
         // Telefon numarasını temizle, sadece rakamlar olsun
         const cleanPhone = formData.phone.replace(/\D/g, '');
 
-        const dataToSend = { ...formData, phone: cleanPhone };
+        const dataToSend = {...formData, phone: cleanPhone};
 
-        emailjs.send('service_r08lmcf', 'template_hpufvf2', dataToSend, 'p6qEnH5Q_KojHiVBD')
+        emailjs.send('service_bbp9vqh', 'template_h70734i', dataToSend, '5pNIxKCQNJuLDGEbQ')
             .then(() => {
                 toast.success('Mesajınız gönderildi!');
-                setFormData({ name: '', phone: '', message: '' });
+                setFormData({name: '', phone: '', message: ''});
             })
             .catch((error) => {
                 console.error('EmailJS error:', error);
@@ -54,23 +55,58 @@ const Footer = () => {
     };
 
     return (
-        <section className={'vh-100 position-relative'}>
+        <section className={'vh100 position-relative'}>
             <footer>
                 <div className={'container py-3 py-md-5'}>
                     <div className={'row g-4'}>
-                        <div id={'hakkimizda'} className={'col-12 col-md-4'}>
-                            <h3 className={'text-white text-uppercase'}>hakkımızda</h3>
-                            <p className={'text-white mb-0 text-justify'}>
-                                Tims Organizasyon olarak Karadeniz Ereğli’de yıllardır özel anlarınızı güzelleştirmek için çalışıyoruz. Düğün, nişan, doğum günü, kurumsal davet ya da festival fark etmeksizin her etkinliğe aynı özeni gösteriyor, hayalinizdeki atmosferi gerçeğe dönüştürüyoruz. Eğlenceyi, düzeni ve samimiyeti bir araya getirerek, davetlilerinizin unutamayacağı anlar yaratıyoruz. İşimizi severek yapıyor, ilk günkü heyecanımızla her detayı en ince ayrıntısına kadar planlıyoruz.
-                            </p>
-                        </div>
-                        <div className={'col-12 col-md-4'}>
+                        <motion.div
+                            initial={{ opacity: 0, x: -200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1 }}
+                            id={'vizyon'} className={'col-12 col-md-6'}>
                             <h3 className={'text-white text-uppercase'}>vİzyon</h3>
                             <p className={'text-white mb-0 text-justify'}>
-                                Bizim için her organizasyon bir hayalin başlangıcıdır. Vizyonumuz, sadece etkinlik düzenlemek değil; insanların hafızasında yer edecek, gülümseyerek hatırlayacakları deneyimler yaratmak. Gelişen dünyaya ayak uydurarak, yaratıcı ve yenilikçi çözümlerle fark yaratmayı hedefliyoruz. Müşterilerimizin güvenini kazanmak, onlara sadece hizmet değil dostluk sunmak önceliğimiz. Tims olarak her zaman “en özel anlarınıza değer katmak” için buradayız.
+                                Türkiye’nin dört bir yanında elde ettiğimiz başarıları daha da ileriye taşıyarak,
+                                organizasyon sektöründe ilk akla gelen, yenilikçi ve güvenilir çözüm ortağı olmak.
+                                Sektörel gelişmeleri yakından takip ederek, etkinlik deneyimini sürekli dönüştüren ve
+                                zenginleştiren bir marka haline gelmek.
                             </p>
-                        </div>
-                        <div id={'form'} className={'col-12 col-md-4'}>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1 }}
+                            id={'misyon'} className={'col-12 col-md-6'}>
+                            <h3 className={'text-white text-uppercase'}>MİSYON</h3>
+                            <p className={'text-white mb-0 text-justify'}>
+                                Kurumsal ciddiyetle bireysel samimiyeti harmanlayan bir anlayışla; etkinlik sahiplerinin
+                                hayal ettiği atmosferi, teknik yeterlilik ve yaratıcı dokunuşlarla gerçeğe dönüştürmek.
+                                Hangi ölçekte olursa olsun, her organizasyona aynı özveriyle yaklaşarak güven, kalite ve
+                                memnuniyet sunmak. </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1 }}
+                            id={'hakkimizda'} className={'col-12 col-md-6'}>
+                            <h3 className={'text-white text-uppercase'}>hakkımızda</h3>
+                            <p className={'text-white text-justify'}>
+                                Tims Organizasyon olarak 20 yılı aşkın bir süredir organizasyon sektöründe fark
+                                yaratıyoruz. Düğünlerden özel davetlere, kurumsal etkinliklerden bayi toplantılarına,
+                                sanatçı temininden konser ve festival organizasyonlarına, konferanslardan lansmanlara
+                                kadar çok geniş bir yelpazede hizmet veriyoruz. Ayrıca LED ekran, ses sistemi, masa,
+                                sandalye gibi teknik ekipman kiralama hizmetlerimizle organizasyonlarınızı eksiksiz
+                                kılıyoruz. Bugüne kadar Türkiye’nin dört bir yanında sayısız şehirde onlarca başarılı projeye imza
+                                attık. Deneyimli ve yaratıcı ekibimizle her ayrıntıyı özenle planlıyor, her
+                                organizasyonu unutulmaz bir deneyime dönüştürüyoruz.
+                            </p>
+                            <p className={'text-white mb-0 fw-bold'}>Çünkü biliyoruz ki, kusursuz bir organizasyon ayrıntılarda gizlidir.</p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1 }}
+                            id={'form'} className={'col-12 col-md-6'}>
                             <form onSubmit={handleSubmit}>
                                 <div className="form-floating mb-3">
                                     <input
@@ -106,7 +142,7 @@ const Footer = () => {
                                         className="form-control"
                                         id="floatingTextarea2"
                                         placeholder="Mesajınız"
-                                        style={{height: '200px'}}
+                                        style={{height: '120px'}}
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
@@ -118,12 +154,22 @@ const Footer = () => {
                                     <button type="submit" className="btn submitBtn px-3 rounded-3">Gönder</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div className={'position-absolute w-100 bottom-0 start-0 py-3 py-md-5'}>
-                        <p className={'text-white text-center mb-0'}>
-                            &copy; 2025 Tims Organizasyon. Tüm hakları saklıdır.
-                        </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className={'col-12 col-md-12'}>
+                            <a href={'https://maps.app.goo.gl/tNsV7X2LyCunNZnm7'} target={'_blank'}>
+                                <p className={'text-white text-center mb-1 fs-4'}>KIRMACI MAH. HASAN CANVER CAD. NO:47/A KDZ.EREĞLİ</p>
+                            </a>
+                            <a href={'tel:903723230532'} target={'_blank'}>
+                                <p className={'text-white text-center mb-1 fs-4'}>0372 323 0 532</p>
+                            </a>
+                            <p className={'text-white text-center mb-0'}>
+                                &copy; 2025 Tims Organizasyon. Tüm hakları saklıdır.
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
             </footer>

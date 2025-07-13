@@ -61,7 +61,6 @@ html, body {
     overflow-y: scroll;
     scroll-snap-type: y mandatory; /* dikey scroll snap */
     scroll-behavior: smooth;
-
 }
 
 .scroll-container > section {
@@ -75,7 +74,8 @@ a {
     text-decoration: unset !important;
 }
 
-.vh-100 {
+.vh100 {
+    height: 100vh;
     max-height: 100vh !important;
     align-content: center;
 }
@@ -158,6 +158,10 @@ header .nav-link {
     font-size: 24px;
 }
 
+.navbar-brand img {
+    width: 400px;
+}
+
 .navbar-nav i {
     color: white !important;
     font-size: 24px;
@@ -214,3 +218,40 @@ footer input:focus{
     border: 1px solid white !important;
     transition: all .3s ease;
 }
+
+
+@media only screen and (max-width: 600px) {
+    header{
+        height: auto;
+    }
+    header .nav-link{
+        font-size: 18px;
+    }
+    .navbar-brand img {
+        width: 200px;
+    }
+    .fs-72{
+        font-size: 48px;
+    }
+    .scroll-container {
+        height: unset;
+        overflow-y: inherit;
+        scroll-snap-type: inherit; /* dikey scroll snap */
+        scroll-behavior: inherit;
+    }
+    .navbar-toggler{
+        border-color: transparent !important;
+    }
+    .vh100{
+        height: auto;
+        max-height: unset !important;
+    }
+    .scroll-container > section{
+        padding-top: 100px !important;
+    }
+    .timsSwiper img{
+        max-height: 300px;
+    }
+}
+
+
