@@ -168,14 +168,17 @@ const Home = () => {
                                     />
                                     {/* Watermark Logo */}
                                     <img
-                                        src="/images/logo.png" // projenin içindeki logo dosyası (public/images/logo.png varsaydım)
+                                        src="/site/assets/img/logo.png" // projenin içindeki logo dosyası (public/images/logo.png varsaydım)
                                         alt="Watermark"
                                         style={{
                                             position: "absolute",
                                             top: "10px",
                                             right: "10px",
-                                            width: "50px",
-                                            opacity: 0.7,
+                                            width: "200px",
+                                            height: "auto",
+                                            objectFit: "contain",
+                                            opacity: 0.8,
+                                            zIndex:1000,
                                             pointerEvents: "none", // tıklamayı engelle
                                         }}
                                     />
