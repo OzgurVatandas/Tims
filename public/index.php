@@ -1,5 +1,9 @@
 <?php
 
+// Deprecated uyarılarını kapat (web & CLI için)
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
+// Zaman damgası
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
@@ -26,7 +30,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
-| this application. We just need to utilize it! We'll simply require it
+| this application. We just need to utilize it! We'll simply require it!
 | into the script here so we don't need to manually load our classes.
 |
 */
@@ -47,6 +51,11 @@ require __DIR__.'/../vendor/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
+
+// CLI modunda da deprecated uyarıları kapatmak için
+if (php_sapi_name() === 'cli') {
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+}
 
 $response = $kernel->handle(
     $request = Request::capture()

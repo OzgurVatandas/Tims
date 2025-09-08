@@ -218,6 +218,87 @@ footer input:focus{
     border: 1px solid white !important;
     transition: all .3s ease;
 }
+.ReactModal__Overlay, .ReactModal__Overlay--after-open{
+    z-index: 1031 !important;
+}
+.ril-image-current, .ril-image-prev, .ril-image-next{
+    max-height: 80vh !important;
+    object-fit: contain !important;
+}
+
+.ril__toolbarItem{
+    line-height: unset !important;
+    padding-top: 10px !important;
+}
+
+#hakkimizda-tabs .nav-item{
+    margin-right: 10px;
+}
+
+#hakkimizda-tabs .nav-item:last-child{
+    margin-right: unset !important;
+}
+
+/* Genel Tabs Container */
+#hakkimizda-tabs .nav-pills {
+    background-color: #111; /* Tab grubu arka planı siyah ton */
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    gap: 10px; /* Sekmeler arasında boşluk */
+    flex-wrap: wrap; /* Mobilde alt satıra geçiş için */
+}
+
+/* Tab Başlıkları */
+#hakkimizda-tabs .nav-link {
+    color: #fff; /* Beyaz metin */
+    background-color: #222; /* Koyu gri tab arka planı */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1; /* Sekmeler eşit genişlikte */
+    text-align: center;
+}
+
+/* Aktif Tab */
+#hakkimizda-tabs .nav-link.active {
+    color: #000; /* Aktif tab metni siyah */
+    background-color: #fff; /* Aktif tab beyaz */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Hover Durumu */
+#hakkimizda-tabs .nav-link:hover {
+    background-color: #444; /* Hoverda biraz daha açık gri */
+    color: #fff;
+}
+
+/* Tab İçeriği */
+#hakkimizda-tabs .tab-pane {
+    background-color: #000; /* İçerik arka planı siyah */
+    color: #fff; /* İçerik metni beyaz */
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Listeler ve başlıklar */
+#hakkimizda-tabs .tab-pane ul {
+    padding-left: 20px;
+}
+
+#hakkimizda-tabs .tab-pane li {
+    margin-bottom: 8px;
+}
+
+/* Vurgu ve strong */
+#hakkimizda-tabs .tab-pane strong {
+    color: #fff; /* Beyaz vurgulu yazı */
+}
+
+
 
 
 @media only screen and (max-width: 600px) {
@@ -231,7 +312,7 @@ footer input:focus{
         width: 200px;
     }
     .fs-72{
-        font-size: 48px;
+        font-size: 40px;
     }
     .scroll-container {
         height: unset;
@@ -251,6 +332,12 @@ footer input:focus{
     }
     .timsSwiper img{
         max-height: 300px;
+    }
+    .scroll-offset {
+        scroll-margin-top: 100px;
+    }
+    .ril-image-current, .ril-image-prev, .ril-image-next{
+        max-height: unset !important;
     }
 }
 

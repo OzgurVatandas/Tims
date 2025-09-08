@@ -4,6 +4,8 @@ import Master from "./master";
 
 
 import 'aos/dist/aos.css'; // AOS stilini dahil ediyoruz
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;

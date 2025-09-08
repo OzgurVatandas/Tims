@@ -50,7 +50,7 @@ const Header = () => {
                                             </a>
                                         </div>
                                         <div className={'px-2 px-md-2'}>
-                                            <a href={'mailto:timsorganizasyon@gmail.com'} target={'_blank'}>
+                                            <a href={'mailto:timsajans@gmail.com'} target={'_blank'}>
                                                 <i className="bi bi-envelope-fill"></i>
                                             </a>
                                         </div>
